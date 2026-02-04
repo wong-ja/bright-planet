@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-950: oklch(14% 0.02 259);
+  --color-slate-900: oklch(20% 0.02 262);
+  --color-slate-800: oklch(26% 0.02 264);
+  --color-slate-700: oklch(32% 0.02 265);
+  --color-slate-50: oklch(96% 0.01 262);
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+}
+
+@layer base {
+  body {
+    @apply bg-planet-950 text-slate-50 antialiased font-sans;
+  }
+  
+  .gradient-planet {
+    background: radial-gradient(ellipse at top, #10b98120, transparent 70%),
+                radial-gradient(ellipse at bottom left, #3b82f60f, transparent 50%),
+                radial-gradient(ellipse at bottom right, #f59e0b20, transparent 50%);
+  }
+}
