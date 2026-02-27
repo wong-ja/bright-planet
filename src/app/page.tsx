@@ -177,10 +177,10 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={handleUseCamera}
-                  className="flex-1 flex items-center justify-center gap-3 rounded-3xl bg-linear-to-r from-slate-800 to-slate-900 px-8 py-5 text-lg font-bold text-slate-100 border-2 border-slate-700/50 hover:border-slate-600 hover:shadow-lg transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-3 rounded-3xl bg-linear-to-r from-slate-700 to-slate-800 px-8 py-5 text-base font-bold text-slate-100 border-2 border-slate-700/50 hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-200"
                 >
                   <Camera className="h-6 w-6" />
-                  📷 Photo / Upload
+                  Upload Image
                 </button>
                 
                 <input
@@ -195,10 +195,10 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setShowBarcodeScanner(true)}
-                  className="flex-1 flex items-center justify-center gap-3 rounded-3xl bg-linear-to-r from-primary to-emerald-600 px-8 py-5 text-lg font-bold text-black shadow-2xl hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-3 rounded-3xl bg-linear-to-r from-emerald-500 to-emerald-600 px-8 py-5 text-lg font-bold text-black border-2 border-emerald-700/50 hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-200"
                 >
                   <Barcode className="h-6 w-6 -rotate-12" />
-                  🔍 Scan Barcode
+                  Scan Barcode
                 </button>
               </div>
             </div>
@@ -229,27 +229,27 @@ export default function HomePage() {
                 <button
                   type="submit"
                   disabled={loading || !file}
-                  className="w-full mt-6 bg-linear-to-r from-primary to-emerald-600 px-6 py-5 text-lg font-black text-black rounded-3xl shadow-2xl hover:shadow-primary/25 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
-                >
+                  className="w-full mt-6 bg-linear-to-r from-emerald-500 to-emerald-600 px-6 py-5 text-lg font-semibold text-black rounded-2xl hover:shadow-primary/25 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
+                  >
                   {loading ? (
                     <>
                       <Loader2 className="h-6 w-6 animate-spin mr-2" />
                       Analyzing Item...
                     </>
                   ) : (
-                    "✨ Analyze Disposal"
+                    "💡 Analyze"
                   )}
                 </button>
+
+                {error && (
+                  <div className="mt-6 p-8 rounded-3xl border-2 border-red-500/20 bg-red-500/5 backdrop-blur-xl text-center">
+                    <AlertCircle className="h-12 w-12 text-red-400 mx-auto mb-4" />
+                    <p className="text-lg font-semibold text-red-300">{error}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-
-          {error && (
-            <div className="mt-12 p-8 rounded-3xl border-2 border-red-500/20 bg-red-500/5 backdrop-blur-xl text-center">
-              <AlertCircle className="h-12 w-12 text-red-400 mx-auto mb-4" />
-              <p className="text-lg font-semibold text-red-300">{error}</p>
-            </div>
-          )}
         </form>
 
         {/* Result */}

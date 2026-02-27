@@ -30,7 +30,7 @@ export default function BarcodeScanner({ onCodeDetected, onClose }: BarcodeScann
         <div className="p-6 border-b border-slate-800/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-linear-to-r from-primary/20 to-emerald-500/20 rounded-2xl">
+              <div className="p-2 bg-linear-to-r from-emerald-400 to-emerald-500 rounded-2xl">
                 <Barcode className="h-7 w-7 text-primary" />
               </div>
               <div>

@@ -49,7 +49,7 @@ export default function DisposalResult({ material, category, explanation, mapQue
           href={mapQueryUrl}
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-3 rounded-2xl bg-linear-to-r from-primary to-emerald-600 px-6 py-4 font-bold text-black shadow-2xl hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-200 border border-primary/50"
+          className="group flex items-center gap-3 rounded-2xl bg-linear-to-r from-emerald-500 to-emerald-600 px-6 py-4 font-bold text-black shadow-2xl hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-200 border border-primary/50"
         >
           <MapPin className="h-5 w-5 group-hover:animate-pulse" />
           <span>Find Nearby Drop-Offs</span>

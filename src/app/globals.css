@@ -12,7 +12,7 @@
 
 @layer base {
   body {
-    @apply bg-planet-950 text-slate-50 antialiased font-sans;
+    @apply bg-slate-950 text-slate-50 antialiased font-sans;
   }
   
   .gradient-planet {
