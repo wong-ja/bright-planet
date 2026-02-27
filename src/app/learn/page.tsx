@@ -35,13 +35,24 @@ export default function LearnPage() {
       <Header />
       
       <main className="mx-auto max-w-6xl px-6 py-12">
-        <section className="text-center mb-12">
+        <section className="text-center mb-6">
           <h1 className="text-6xl md:text-7xl font-black bg-linear-to-r from-emerald-400 via-primary to-teal-400 bg-clip-text text-transparent drop-shadow-2xl mb-6">
             Quick Guide
           </h1>
-          <p className="text-xl md:text-2x1 text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-slate-300 max-w-3xl mx-auto leading-relaxed mb-4">
             Common items cheat sheet. Scan for specifics or check these rules first.
           </p>
+        </section>
+
+        <section className="mb-6 text-center">
+          <div className="max-w-2xl mx-auto p-6 rounded-4xl bg-linear-to-r from-yellow-500/10 to-orange-500/10 border-2 border-yellow-500/30 backdrop-blur-xl">
+            <AlertTriangle className="h-10 w-10 text-yellow-400 mx-auto mb-4 animate-pulse" />
+            <h3 className="text-2xl font-bold text-yellow-100 mb-4">Local Rules Matter</h3>
+            <p className="text-lg text-yellow-200 leading-relaxed">
+              Recycling rules vary by city and neighborhood. These are general guidelines. 
+              Always check your local guidelines when in doubt.
+            </p>
+          </div>
         </section>
 
         <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -71,17 +82,6 @@ export default function LearnPage() {
               </div>
             </div>
           ))}
-        </section>
-
-        <section className="mt-12 text-center">
-          <div className="max-w-2xl mx-auto p-10 rounded-4xl bg-linear-to-r from-yellow-500/10 to-orange-500/10 border-2 border-yellow-500/30 backdrop-blur-xl">
-            <AlertTriangle className="h-16 w-16 text-yellow-400 mx-auto mb-6 animate-pulse" />
-            <h3 className="text-2xl font-bold text-yellow-100 mb-4">Local Rules Matter</h3>
-            <p className="text-lg text-yellow-200 leading-relaxed">
-              Recycling rules vary by city and neighborhood. These are general guidelines. 
-              Always check your local guidelines when in doubt.
-            </p>
-          </div>
         </section>
 
         <div className="mt-12 text-center">

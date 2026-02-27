@@ -30,7 +30,7 @@ export default function Header() {
           <div className="flex items-center gap-3 px-4 py-2 text-xs text-slate-400 font-medium bg-slate-900/50 rounded-2xl border border-slate-800/50">
             <Link 
               href="/"
-              className=" inline-flex items-center gap-3 bg-transparent text-emerald-500 text-base scale-90 font-medium hover:text-emerald-200 hover:shadow-primary/25 transition-all duration-300 "          >
+              className=" inline-flex items-center gap-3 bg-transparent text-emerald-500 text-base scale-90 font-medium hover:text-emerald-200 hover:shadow-primary/25 transition-all">
               <Camera className="h-4 w-4 text-primary" />
               Start Scanning
             </Link>
