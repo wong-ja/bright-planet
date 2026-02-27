@@ -51,18 +51,19 @@ export default function HomePage() {
     setShowBarcodeScanner(false);
     setLoading(true);
     setError(null);
-    
+
     try {
-      const body: Record<string, unknown> = { barcode: code };
+      const formData = new FormData();
+      formData.append("barcode", code);
       if (coords) {
-        body.lat = coords.lat;
-        body.lng = coords.lng;
+        formData.append("lat", String(coords.lat));
+        formData.append("lng", String(coords.lng));
       }
 
       const res = await fetch("/api/classify", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: formData,
+        // Do NOT set Content-Type; fetch handles it
       });
 
       if (!res.ok) throw new Error("Classification service unavailable");
@@ -123,14 +124,14 @@ export default function HomePage() {
       
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
         {/* Hero */}
-        <section className="text-center mb-16">
+        <section className="text-center mb-10">
           <div className="inline-flex items-center gap-3 bg-linear-to-r from-primary/20 to-emerald-500/20 px-6 py-3 rounded-3xl border border-primary/30 mb-8">
             <Globe className="h-6 w-6 text-primary animate-float" />
             <h1 className="text-5xl md:text-6xl font-black bg-linear-to-r from-slate-100 via-white to-slate-200 bg-clip-text text-transparent drop-shadow-2xl">
               Bright Planet
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="text-sm md:text-base text-slate-300 max-w-3xl mx-auto leading-relaxed mb-6">
             Scan any item. Get instant disposal instructions. Find nearby drop-offs. 
             <span className="text-primary font-bold"> Save the planet.</span>
           </p>
