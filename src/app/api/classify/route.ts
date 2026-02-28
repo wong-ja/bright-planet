@@ -12,7 +12,7 @@ interface WasteClassification {
   alternatives?: Array<{ category: string; confidence: number; explanation: string }>;
 }
 
-const BACKEND_URL = "http://localhost:8000/api/classify";
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/classify";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
