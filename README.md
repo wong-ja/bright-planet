@@ -26,8 +26,8 @@ Cross-platform PWA for responsible recycling.
 
 1. Clone & install
 ```
-git clone <your-repo> ecosort
-cd ecosort
+git clone https://github.com/wong-ja/bright-planet
+cd bright-planet
 npm install
 ```
 
@@ -43,7 +43,7 @@ npm run dev
 
 3. Start backend
 ```
-cd python-service
+cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
