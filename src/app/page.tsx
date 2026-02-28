@@ -10,7 +10,16 @@ interface ClassificationResponse {
   material: string;
   category: DisposalCategory;
   explanation: string;
-  mapQuery: string | null;
+  reasoning?: string;
+  tips?: string;
+  confidence?: number;
+  source?: string;
+  mapQueryUrl?: string | null;
+  alternatives?: Array<{
+    category: string;
+    confidence: number;
+    explanation: string;
+  }>;
 }
 
 export default function HomePage() {
@@ -83,7 +92,20 @@ export default function HomePage() {
       setError("Please select/take a photo first.");
       return;
     }
+
+    console.log("📁 File details:", {
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      lastModified: new Date(file.lastModified).toISOString()
+    });
+    const formData = new FormData();
+    formData.append("file", file);
     
+    for (const [key, value] of formData.entries()) {
+      console.log(`FormData ${key}:`, value);
+    }
+
     setLoading(true);
     setError(null);
 
@@ -121,9 +143,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col gradient-planet">
       <Header />
-      
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
-        {/* Hero */}
         <section className="text-center mb-10">
           <div className="inline-flex items-center gap-3 bg-linear-to-r from-primary/20 to-emerald-500/20 px-6 py-3 rounded-3xl border border-primary/30 mb-8">
             <Globe className="h-6 w-6 text-primary animate-float" />
@@ -137,11 +157,9 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Scanner Form */}
+        {/* scanner */}
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Scanner Area */}
             <div className="lg:col-span-8">
               <div className="rounded-4xl border-2 border-slate-800/50 bg-slate-900/50 backdrop-blur-xl p-10 shadow-2xl hover:border-primary/50 transition-all duration-300 group">
                 {imagePreview ? (
@@ -173,7 +191,7 @@ export default function HomePage() {
                 )}
               </div>
 
-              {/* Action Buttons */}
+              {/* buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <button
                   type="button"
@@ -204,7 +222,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Controls */}
             <div className="lg:col-span-4 space-y-6">
               <div className="rounded-3xl border-2 border-slate-800/50 bg-slate-900/50 p-8 backdrop-blur-xl hover:border-primary/50 transition-all shadow-xl">
                 <button
@@ -223,8 +240,7 @@ export default function HomePage() {
                 )}
                 
                 <p className="text-xs text-slate-500 mt-4 text-center leading-relaxed">
-                  Location helps find nearby recycling centers and 
-                  special drop-offs (e-waste, hazardous, compost).
+                  Location helps find nearby recycling centers and special drop-offs (e-waste, hazardous, compost).
                 </p>
 
                 <button
@@ -253,17 +269,22 @@ export default function HomePage() {
           </div>
         </form>
 
-        {/* Result */}
+        {/* result */}
         {result && (
           <DisposalResult
             material={result.material}
             category={result.category}
             explanation={result.explanation}
-            mapQueryUrl={result.mapQuery ?? undefined}
+            reasoning={result.reasoning}
+            tips={result.tips}
+            confidence={result.confidence}
+            source={result.source}
+            mapQueryUrl={result.mapQueryUrl ?? undefined}
+            alternatives={result.alternatives || []}
           />
         )}
 
-        {/* Barcode Scanner Modal */}
+        {/* barcode scan */}
         {showBarcodeScanner && (
           <BarcodeScanner
             onCodeDetected={handleBarcodeScan}
