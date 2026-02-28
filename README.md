@@ -31,7 +31,7 @@ cd bright-planet
 npm install
 ```
 
-Add `.env.local`
+Add `.env`
 ```
 PYTHON_API_URL=http://localhost:8000
 ```
