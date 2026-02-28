@@ -1,7 +1,6 @@
 # Bright Planet
 
-**Scan waste items. Get disposal instructions. Find nearby drop-offs.**  
-Cross-platform PWA for responsible recycling.
+Scan waste items. Get disposal instructions. Find nearby drop-offs. Cross-platform PWA for responsible recycling.
 
 ## Features
 
