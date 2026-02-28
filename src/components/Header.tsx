@@ -15,7 +15,7 @@ export default function Header() {
             <h1 className="text-2xl font-black bg-linear-to-r from-emerald-300 via-emerald-400 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">
               Bright Planet
             </h1>
-            <p className="text-xs text-emerald-400 font-medium tracking-wider uppercase">Smart Sorting</p>
+            <p className="text-xs text-emerald-400 font-medium tracking-wider uppercase">Smart Waste Sorting</p>
           </div>
         </Link>
 

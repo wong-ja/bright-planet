@@ -6,25 +6,37 @@ const guides = [
   {
     title: "🧋♻️ Plastic Bottles",
     category: "recycle",
-    content: "Rinse thoroughly. Remove cap (recycle separately). #1 PET plastic accepted by most curbside programs.",
+    content: "Rinse thoroughly, recycle cap separately. PET (#1) plastic accepted by most curbside programs.",
+    color: "emerald"
+  },
+  {
+    title: "🧃📦 Cardboard or Paper",
+    category: "recycle",
+    content: "Flatten boxes and keep dry. Remove tape. Grease contaminates recycling, but can be used as compost. Scrape food, tear clean parts if possible.",
     color: "emerald"
   },
   {
     title: "🔋🪫 Batteries",
     category: "hazardous",
-    content: "Take to battery recycling (Home Depot, Best Buy). NEVER trash. Hazardous materials.",
+    content: "Bring to a battery recycling drop-off (Home Depot, Best Buy, Staples). NEVER trash. Hazardous materials.",
     color: "red"
   },
   {
-    title: "🍕📦 Pizza Boxes", 
-    category: "landfill",
-    content: "Grease contaminates recycling. Scrape food, tear clean parts if possible.",
-    color: "slate"
+    title: "📱🔌 Electronics",
+    category: "ewaste",
+    content: "Old phones, cables, and chargers should go to e-waste recycling centers.",
+    color: "violet"
   },
   {
-    title: "🌯🪨 Aluminum Foil",
-    category: "recycle", 
-    content: "Clean + crinkle into loose ball. Most curbside programs accept clean aluminum.",
+    title: "🍕🍎 Food Waste",
+    category: "compost",
+    content: "Fruit, veggies, and coffee grounds go in compost. Avoid meat, dairy, and bones.",
+    color: "lime"
+  },
+  {
+    title: "🥫🪨 Aluminum Cans",
+    category: "recycle",
+    content: "Rinse, don't crush. Cans and foil can be recycled when clean. Most curbside programs accept clean aluminum.",
     color: "emerald"
   }
 ];
@@ -55,7 +67,7 @@ export default function LearnPage() {
           </div>
         </section>
 
-        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {guides.map((guide, index) => (
             <div 
               key={guide.title}
